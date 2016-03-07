@@ -2,4 +2,8 @@ object-ownership là dùng cơ chế theo dõi và đếm các tham chiếu tớ
 ngược lại nếu số tham chiếu giảm xuống thì số reference count cũng sẽ giảm tương ứng cho tới khi bằng 0. Đối tượng nào có số reference count bằng 0 thì sẽ được hệ thống tự động hũy.
 
 Ban đầu để quản lý việc đếm reference count của mỗi đối tượng một cách thủ công bằng một số methods của lớp NSObject protocol và được gọi là Manual Retain Release (MRR)
-Cho tới khi phát hành phiên bản Xcode 4.2 cùng với cơ chế tự động quản lý bộ nhớ được gọi là Automatic Reference Counting (ARC).
+Cho tới khi phát hành phiên bản Xcode 4.2 cùng với cơ chế tự động quản lý bộ nhớ được gọi là Automatic Reference Counting (ARC), nó sẽ tự động đếm, tự insert các methods giúp quản lý memory.
+
+Chúng ta sẽ bắt đầu tìm hiểu 2 cơ chế thủ công và tự động bên trên.
+
+Manual Retain Release
