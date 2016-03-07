@@ -17,3 +17,26 @@ Trong trường hợp chúng ta quên gọi các hàm hủy mà chỉ cấp phá
 lúc nào cũng release đối tượng sẽ xãy ra trường hợp treo các vùng nhớ và sẽ không truy cập lại các vùng đó được, được gọi là dangling pointer
 Tất cả điều dẫn tới crash progaram.
 
+Enabling MRR
+Để trãi Nghiệm quản lý bộ nhớ bằng tay, ta cần phải tắt Automatic Reference Counting, tại Build Settings tab.
+
+The alloc Method
+Khi sử dụng alloc như ví dụ bên dưới, nó không chỉ cấp phát bộ nhớ cho đối tượng mà còn setting thêm 1 reference count cho object đó.
+
+      // main.m
+#import <Foundation/Foundation.h>
+
+int main(int argc, const char * argv[]) {
+    @autoreleasepool {
+        NSMutableArray *inventory = [[NSMutableArray alloc] init];
+        [inventory addObject:@"Honda Civic"];
+        NSLog(@"%@", inventory);
+    }
+    return 0;
+}
+
+Với dòng code trên sẽ được cảnh báo làm cho ứng dụng leak memory.
+
+The release Method
+Nó sẽ giải phóng các mối quan hệ với các đối tượng khác or có thể sẽ hủy đối tượng này và làm giảm đi 1 refrence count. Tránh trường hợp leak memory.
+Nhưng việc dùng release methods quá sớm sẽ dẫn tới dangling pointer, làm tạo ra nhiều vùng nhớ không được accsess. Vậy nên không được relaese một đối tượng quá sớm khi chưa sử dụng nó xong.
