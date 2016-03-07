@@ -1,0 +1,2 @@
+object-ownership là dùng cơ chế theo dõi và đếm các tham chiếu tới đối tượng đang được theo dõi. Ứng với mỗi tham chiếu đến đối tượng sẽ tăng thêm một biến đếm(reference-counting system)
+ngược lại nếu số tham chiếu giảm xuống thì số reference count cũng sẽ giảm tương ứng cho tới khi bằng 0. Đối tượng nào có số reference count bằng 0 thì sẽ được hệ thống tự động hũy.
