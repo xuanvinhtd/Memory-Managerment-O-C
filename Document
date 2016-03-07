@@ -9,7 +9,7 @@ Chúng ta sẽ bắt đầu tìm hiểu 2 cơ chế thủ công và tự động
 Manual Retain Release
 Khi có một yêu cầu tạo hoặc giải phóng một đối tượng nào đó trong chương trình. Khi đó bạn cần phải gọi một số methods dưới đây để quản lý bộ nhớ thủ công:
       alloc - Tạo một đối tượng và tạo vùng địa chỉ cho object đó.
-      retain - Khẳng định đối tượng đang tồn tại và đang được một đối tượng nào đó sử dụng.
+      retain - Giữ lại đối tượng không cho nó giải phóng or đang được một đối tượng nào đó sử dụng.
       copy - sao chép đối tượng và tạo một retain.
       release - Giải phóng các mỗi quan hệ giữa các đối tượng và hủy đối tượng đó.
       autorelease - Giải phóng các mỗi quan hệ giữa các đối tượng nhưng hoãn lại chưa hủy đối tượng này(khi hết thúc program mới hủy).
@@ -40,3 +40,8 @@ Với dòng code trên sẽ được cảnh báo làm cho ứng dụng leak memo
 The release Method
 Nó sẽ giải phóng các mối quan hệ với các đối tượng khác or có thể sẽ hủy đối tượng này và làm giảm đi 1 refrence count. Tránh trường hợp leak memory.
 Nhưng việc dùng release methods quá sớm sẽ dẫn tới dangling pointer, làm tạo ra nhiều vùng nhớ không được accsess. Vậy nên không được relaese một đối tượng quá sớm khi chưa sử dụng nó xong.
+
+The retain Method
+Nó giữ lại đối tượng không cho nó giải phóng, ý muốn nói với hệ thống là tôi cần thèn này và tối không muốn nó bị hủy.
+
+The autorelease method
