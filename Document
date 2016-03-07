@@ -7,3 +7,9 @@ Cho tới khi phát hành phiên bản Xcode 4.2 cùng với cơ chế tự đ�
 Chúng ta sẽ bắt đầu tìm hiểu 2 cơ chế thủ công và tự động bên trên.
 
 Manual Retain Release
+Khi có một yêu cầu tạo hoặc giải phóng một đối tượng nào đó trong chương trình. Khi đó bạn cần phải gọi một số methods dưới đây để quản lý bộ nhớ thủ công:
+      alloc - Tạo một đối tượng và tạo vùng địa chỉ cho object đó.
+      retain - Khẳng định đối tượng đang tồn tại và đang được một đối tượng nào đó sử dụng.
+      copy - sao chép đối tượng và tạo một retain.
+      release - Giải phóng các mỗi quan hệ giữa các đối tượng và hủy đối tượng đó.
+      autorelease - Giải phóng các mỗi quan hệ giữa các đối tượng nhưng hoãn lại chưa hủy đối tượng này(khi hết thúc program mới hủy).
