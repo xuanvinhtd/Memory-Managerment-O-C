@@ -13,3 +13,7 @@ Khi có một yêu cầu tạo hoặc giải phóng một đối tượng nào �
       copy - sao chép đối tượng và tạo một retain.
       release - Giải phóng các mỗi quan hệ giữa các đối tượng và hủy đối tượng đó.
       autorelease - Giải phóng các mỗi quan hệ giữa các đối tượng nhưng hoãn lại chưa hủy đối tượng này(khi hết thúc program mới hủy).
+Trong trường hợp chúng ta quên gọi các hàm hủy mà chỉ cấp phát và tạo bộ nhớ không thì sẽ dẫn đến tràn bộ nhớ hay gọi là  memory leak. Hoăc nếu bạn
+lúc nào cũng release đối tượng sẽ xãy ra trường hợp treo các vùng nhớ và sẽ không truy cập lại các vùng đó được, được gọi là dangling pointer
+Tất cả điều dẫn tới crash progaram.
+
