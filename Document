@@ -45,3 +45,18 @@ The retain Method
 Nó giữ lại đối tượng không cho nó giải phóng, ý muốn nói với hệ thống là tôi cần thèn này và tối không muốn nó bị hủy.
 
 The autorelease method
+Giống như release,nhưng autorelease sẽ thay vì huỷ đối tượng ngay lập tức khắc thì nó sẽ giữ lại đôi tượng và huỷ bộ nhớ trễ hơn để một số object khác dùng.
+The dealloc Method
+Nó là methods ngưược lại với init method. Nó sẽ được gọi trước khi huỷ object, nó cho phép xoá sạch bất kỳ cái gì liên quan tới object đó
+Đặc biệt là phương thức này sẽ tự động gọi trong runtime nên bạn không cần phải gọi cho object của bạn.
+Chú ý khi release đối tượng nên release cả superclass sau cùng để chắc rằng tất cả các biến liên quan đều được huỷ sạch.
+
+Automatic Reference Counting
+Đầu tiền cần phải Enabling ARC
+ARC nó sẽ phân tích code của bạn dự đoán thời gian tồn tại của object có thể đạt được khi đó nó sẽ insert các methods cần thiết như retain
+, release và gọi nó một cách tự động. 
+New Property Attributes: khi arc giới thiệu cùng với một số @property, strong sẽ đi cùng với retain, assign đi với weak....
+The dealloc Method in ARC : Nó sẽ tự động gọi huỷ đối tượng và tự gọi huỷ lớp superclass.
+
+Tài liệu ARC của Apple
+https://developer.apple.com/library/mac/releasenotes/ObjectiveC/RN-TransitioningToARC/Introduction/Introduction.html#//apple_ref/doc/uid/TP40011226
